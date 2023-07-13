@@ -1,0 +1,81 @@
+.story {
+  font-size: $default-font-size;
+  width: 75%;
+  margin: 0 auto;
+  padding: 6rem;
+  padding-left: 9rem;
+  border-radius: 3px;
+  background-color: rgba($color-white, 0.5);
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  transform: skewX(-12deg);
+
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
+  & > * {
+    transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
+  }
+  &__shape {
+    position: relative;
+    height: 15rem;
+    width: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+    // background-image: url(../img/nat-8.jpg);
+    // background-size: contain;
+    // background-repeat: no-repeat;
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
+  }
+
+  &__img {
+    height: 100%;
+    transform: scale(1.2);
+    transition: all 0.5s;
+  }
+
+  &__caption {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.7rem;
+    color: $color-white;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  // &:hover &__shape {
+  //     background-size: 100% 100%;
+  // }
+
+  &:hover &__img {
+    transform: scale(1);
+    filter: blur(2px) brightness(90%);
+  }
+}

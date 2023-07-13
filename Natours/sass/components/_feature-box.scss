@@ -1,0 +1,32 @@
+.feature-box {
+    // transform: skewY(7deg); don't skew on nested children it gives akward graph look
+    background-color: rgba($color-subtle-grey, 0.8);
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 1.5rem;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+    transition: transform .3s;
+
+    @include respond(tab-port){
+        padding: 2rem;
+    }
+        
+    &__icon {
+        font-size: 6rem;
+        display: inline-block;
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        
+    @include respond(tab-port){
+        line-height: 1;
+    }
+    }
+
+    &:hover {
+        transform: scaleX(1.03) translateY(-1.5rem);
+        box-shadow: 0 1.7rem 4rem rgba($color-black, 0.4);  
+    }
+}
